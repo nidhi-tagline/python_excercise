@@ -1,15 +1,14 @@
 # count substring occurs in the given string.
+import re
 
 string = 'PQRQRQRQ'
 substring = 'QRQ'
-print(f'String: {string} \nSubstring: {substring}\n')
+print(f'String: {string} \nSubstring: {substring}')
 
-str_list = []
+count = 0
 for i in range(len(string)):
-    str_list.append(string[i:i+len(substring)])
-    if i == len(string)-len(substring):
-        break
+    result = re.match(substring,string[i:])
+    if result :
+        count += 1
 
-print(str_list)
-count = str_list.count(substring)
 print("Number of times substring appears in the given string: ", count)
